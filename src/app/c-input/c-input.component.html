@@ -1,0 +1,27 @@
+
+<div *ngIf="type== 'text' || type =='email' || type == 'password' || type =='tel' || type == 'number'" [formGroup]="parentForm">
+    <h1>{{label}}</h1>
+    <input [type]="type" [name]="name" [ngClass]="cssClass" (ngModelChange)="handleChange()" [id]="name"  [(ngModel)]="inputValue" [formControlName]="name" />
+</div>
+<div *ngIf="type == 'select'" [formGroup]="parentForm">
+    <h1>{{label}}</h1>
+<select  [name]="name" [ngClass]="cssClass" [formControlName]="name" (change)="handleChange()" [(ngModel)]="inputValue">
+    <option *ngFor="let item of dataList" [value]="item.value">{{item.text}}</option>
+</select>
+</div>
+
+<div *ngIf="type == 'radio'" [formGroup]="parentForm">
+    <h1>{{label}}</h1>
+    <div *ngFor="let item of dataList">
+        <input  type="radio" [value]="item.value" [formControlName]="name" [id]="item.value" (change)="handleChange()"  [(ngModel)]="inputValue" [name]="name"> 
+        <label [for]="item.value">{{item.text}}</label>
+    </div>
+</div>
+
+<div *ngIf="type == 'checkbox'" [formGroup]="parentForm">
+    <h1>{{label}}</h1>
+    <div *ngFor="let item of dataList">
+        <input  type="checkbox" [value]="item.value" [formControlName]="name" [id]="item.value" (change)="handleChange()"  [(ngModel)]="item.check" [name]="name"> 
+        <label [for]="item.value">{{item.text}}</label>
+    </div>
+</div>
