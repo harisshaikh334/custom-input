@@ -1,0 +1,6 @@
+<h1>{{label}}</h1>
+{{dataList | json}}
+<div *ngFor="let item of dataList">
+    <input  type="checkbox" [value]="item.value" [id]="item.value" (ngModelChange)="handleChange($event)"  [(ngModel)]="item.check" [name]="name"> 
+    <label [for]="item.value">{{item.text}}</label>
+</div>

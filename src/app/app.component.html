@@ -1,5 +1,5 @@
 <p>Custom Inputs</p>
-<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<!-- <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
 
   <app-c-input type="text" name="name" [parentForm]="userForm" label="Name"  [inputValue]="value" [cssClass]="''" (inputModelChange)="changeVal($event)"></app-c-input><br>
 
@@ -9,6 +9,18 @@
 
   <app-c-input type="checkbox" name="skills" [parentForm]="userForm" label="Skills" [dataList]="skillsList" (inputModelChange)="changeVal($event)" ></app-c-input>
 
-</form>
+</form> -->
+<form #form="ngForm" [formGroup]="emplForm">
+  <app-custom-form-inputs type="text" pattern="[A-Za-z]" [(ngModel)]="name" placeholder="Enter name" formControlName="name" name="name" required></app-custom-form-inputs>
+  <app-custom-form-select [(ngModel)]="selValue" formControlName="sel" name="sel" [dataList]="dataList" label="Select" required>
 
+  </app-custom-form-select>
+  <app-custom-form-radio [dataList]="genderList" formControlName="gender" name="gender" label="Choose Gender" [(ngModel)]="genderSel">
+    
+  </app-custom-form-radio>
+  <app-custom-form-checkbox label="Select Skills" formControlName="skills" [(ngModel)]="skillsList" [dataList]="skillsList" name="skills">
+
+  </app-custom-form-checkbox>
+</form>
+<pre>{{ form.value | json }}</pre>
 <router-outlet></router-outlet>

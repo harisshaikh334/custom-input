@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { CInputComponent } from './c-input/c-input.component';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ export class AppComponent {
     {
       text: 'Angular',
       value: 'Angular',
-      check: false
+      check: true
     },
     {
       text: 'HTML',
@@ -62,15 +63,30 @@ export class AppComponent {
     }
   ];
   gender = '';
+  genderSel = 'male';
   userForm:FormGroup;
+  emplForm:FormGroup;
+  @ViewChild('ename')ename: CInputComponent;
+  @ViewChild('form')form:any;
+  name:String = '';
   constructor (public fb: FormBuilder) {
     
-    this.userForm = fb.group({
-      name: [this.value, Validators.required],
-      mobile: [this.phone_no,Validators.required],
-      gender: [this.gender, Validators.required],
-      skills:[],
-    })
+    // this.userForm = fb.group({
+    //   name: [this.value, Validators.required],
+    //   mobile: [this.phone_no,Validators.required],
+    //   gender: [this.gender, Validators.required],
+    //   skills:[],
+    // });
+
+    this.emplForm = fb.group({
+      name: ['', Validators.required],
+      sel: [''],
+      gender: [''],
+      skills:[]
+    });
+    setInterval(() => {
+      console.log('interval form ', this.emplForm);
+    }, 5000);
   }
   changeVal(e) {
   }

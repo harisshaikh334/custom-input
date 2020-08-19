@@ -1,0 +1,6 @@
+
+<h3>{{label}}</h3>
+<div *ngFor="let item of dataList" (click)="handleChange(item.value)" class="{{cssClass}}">
+    <input  type="radio" [value]="item.value" [id]="item.value"  [(ngModel)]="value" [name]="name"> 
+    <label [for]="item.value">{{item.text}}</label>
+</div>

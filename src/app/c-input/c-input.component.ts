@@ -17,6 +17,7 @@ export class CInputComponent implements OnInit {
   @Input()dataList = [];
   @Input()label = '';
   @Input()parentForm:FormGroup;
+  @Input()required:boolean = false;
   @Output() inputModelChange = new EventEmitter<any>();
 
   ngOnInit(): void {
