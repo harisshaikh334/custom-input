@@ -1,2 +1,2 @@
 <h3>{{label}}</h3>
-<input type="{{type}}" [(ngModel)]="value" name="{{name}}" class="{{cssClass}}" placeholder="{{placeholder}}" (change)="handleChange($event)" />
+<input [type]="type != 'email' ? 'text' : 'email'" (keypress)="numberOnly($event)"  [(ngModel)]="value" name="{{name}}" class="{{cssClass}}" placeholder="{{placeholder}}" (change)="handleChange($event)" />

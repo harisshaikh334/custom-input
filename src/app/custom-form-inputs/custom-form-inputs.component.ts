@@ -19,16 +19,26 @@ export class CustomFormInputsComponent implements ControlValueAccessor, Validato
   @Input()type = "text";
   @Input()cssClass="";
   @Input()pattern:any;
+  @Input()onlyNumber:boolean = false;
   constructor() {
    }
 
-  
+   numberOnly(event): boolean {
+    if (this.type == 'number' || this.type == 'tel') {
+      const charCode = (event.which) ? event.which : event.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+      }
+      return true;
+    }
+    
+
+  }
 
   writeValue(value: string) {
     this.value = value;
   }
   handleChange($event) {
-    console.log('event target ', $event.target.value, )
     this.onChange($event.target.value);
   }
 

@@ -9,6 +9,7 @@ import { CustomFormInputsComponent } from './custom-form-inputs/custom-form-inpu
 import { CustomFormSelectComponent } from './custom-form-select/custom-form-select.component';
 import { CustomFormRadioComponent } from './custom-form-radio/custom-form-radio.component';
 import { CustomFormCheckboxComponent } from './custom-form-checkbox/custom-form-checkbox.component';
+import { OnlyNumberDirective } from './only-number.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CustomFormCheckboxComponent } from './custom-form-checkbox/custom-form-
     CustomFormInputsComponent,
     CustomFormSelectComponent,
     CustomFormRadioComponent,
-    CustomFormCheckboxComponent
+    CustomFormCheckboxComponent,
+    OnlyNumberDirective
   ],
   imports: [
     BrowserModule,

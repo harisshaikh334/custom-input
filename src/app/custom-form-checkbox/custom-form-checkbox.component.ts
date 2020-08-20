@@ -17,8 +17,7 @@ export class CustomFormCheckboxComponent implements ControlValueAccessor, Valida
   constructor() { }
 
   handleChange(e) {
-    console.log('event target ', e);
-    // this.inputModelChange.emit(this.dataList);
+    
   }
   onChange:(value: string) => void;
 
@@ -40,7 +39,6 @@ export class CustomFormCheckboxComponent implements ControlValueAccessor, Valida
         };
       }
       let data = this.dataList.filter(item => item.check);
-      console.log('data is ', data);
       if (data.length ==0 ) {
         return {
           'required': true

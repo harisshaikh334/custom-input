@@ -1,4 +1,5 @@
 <h3>{{label}}</h3>
 <select  [name]="name" [ngClass]="cssClass" (change)="handleChange($event)" [(ngModel)]="value">
+    <option value="" >Select</option>
     <option *ngFor="let item of dataList" [value]="item.value">{{item.text}}</option>
 </select>

@@ -34,7 +34,7 @@ export class AppComponent {
     {
       text: 'Angular',
       value: 'Angular',
-      check: true
+      check: false,
     },
     {
       text: 'HTML',
@@ -77,23 +77,20 @@ export class AppComponent {
     //   gender: [this.gender, Validators.required],
     //   skills:[],
     // });
-
     this.emplForm = fb.group({
       name: ['', Validators.required],
       sel: [''],
       gender: [''],
-      skills:[]
+      skills:[this.skillsList]
     });
-    setInterval(() => {
-      console.log('interval form ', this.emplForm);
-    }, 5000);
+    
   }
   changeVal(e) {
   }
   handleChange(e) {
     
   }
-  onFormSubmit () {
-    
+  onFormSubmit (form) {
+    console.log('form submit is ', form);
   }
 }
